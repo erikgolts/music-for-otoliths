@@ -147,7 +147,7 @@ var startDrone3 = function(note){
 
 var startHarp = function(note1, note2, interval, offset){
   new Tone.Loop(function(time){
-    harp.triggerAttack(note1).connect(reverb)
+    harp.triggerAttack(note1).connect(reverb);
     reverb.toMaster();
     harp.triggerAttack(note2).toMaster();
   }, interval).start(offset);
