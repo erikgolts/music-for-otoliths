@@ -42,7 +42,7 @@ var oboe = new Tone.Sampler({
   "G4" : g4,
   "G5" : g5
 }, {
-  "attack": 5,
+  "attack": 8,
   "volume": -24
 });
 
@@ -103,7 +103,7 @@ var autofilter = new Tone.AutoFilter({
 var shiftDown = new Tone.PitchShift(-12);
 
 var hipass = new Tone.Filter(60, "highpass");
-var lopass = new Tone.Filter(1800, "lowpass");
+var lopass = new Tone.Filter(1200, "lowpass");
 var lopass2 = new Tone.Filter(300, "lowpass");
 
 
@@ -128,21 +128,21 @@ var startDrone = function(note){
     lopass2.connect(delay2);
     delay2.toMaster();
     //autofilter.toMaster().start();
-  }, 16.2, { 'humanize': true }).start();
+  }, 26.2, { 'humanize': true, 'probability': 0.7 }).start();
 };
 
 var startDrone2 = function(note){
     new Tone.Loop(function(time){
     piano.triggerAttack(note).connect(lopass2);
     lopass2.toMaster();
-  }, 18.6, { 'humanize': true }).start(3);
+  }, 18.6, { 'humanize': true, 'probability': 0.7 }).start(3);
 };
 
 var startDrone3 = function(note){
   new Tone.Loop(function(time){
   	piano.triggerAttack(note).connect(lopass2);
     lopass2.toMaster();
-  }, 12.9, { 'humanize': true }).start(1);
+  }, 22.9, { 'humanize': true, 'probability': 0.7 }).start(1);
 };
 
 var startHarp = function(note1, note2, interval, offset){
@@ -156,8 +156,9 @@ var startHarp = function(note1, note2, interval, offset){
 
 startNote('G3');
 startNote('G4');
-startNote('D3');
+//startNote('D3');
 startNote('D4');
+startNote('A3');
 startNote('A4');
 startNote('E4');
 startNote('C5');
