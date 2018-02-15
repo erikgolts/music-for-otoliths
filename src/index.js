@@ -13,7 +13,7 @@ var piano = new Tone.Sampler({
   "A3" : a_3
 }, {
   "attack": 8,
-  "volume": -20
+  "volume": -12
 });
 
 // oboe
@@ -77,11 +77,11 @@ var harp = new Tone.Sampler({
 // effects/components
 var reverb = new Tone.Freeverb({
   "roomSize": 0.998,
-  "dampening": 1700,
+  "dampening": 1600,
   "wet": 0.9
 });
 
-var delay = new Tone.PingPongDelay("4n", 0.8).toMaster();
+var delay = new Tone.PingPongDelay("4n", 0.7).toMaster();
 
 var delay2 = new Tone.PingPongDelay(1.2, 0.9).toMaster();
 
@@ -103,7 +103,7 @@ var autofilter = new Tone.AutoFilter({
 var shiftDown = new Tone.PitchShift(-12);
 
 var hipass = new Tone.Filter(60, "highpass");
-var lopass = new Tone.Filter(800, "lowpass");
+var lopass = new Tone.Filter(1800, "lowpass");
 var lopass2 = new Tone.Filter(300, "lowpass");
 
 
@@ -166,7 +166,7 @@ startDrone('G2');
 startDrone2('A3');
 startDrone3('C3');
 
-startHarp('A5','D6', 32.3, 60);
+startHarp('D5','D6', 32.3, 60);
 startHarp('C5','G6', 46.3, 1);
 //startHarp('A5','D6', 3, 1);
 
